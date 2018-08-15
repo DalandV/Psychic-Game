@@ -7,15 +7,14 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 console.log(computerChoices)
 
 // Start with 0 Wins
-var winsScore = 0;
+var winsScore = document.getElementById('wins').innerHTML = "Wins: " + 0;
 
 // Start with 0 Losses
-var lossScore = 0;
+var lossScore = document.getElementById('losses').innerHTML = "Lossed: " + 0;
 
 // Start with 9 Guesses Left
-var guessesLeft = 9;
+var guessesLeft = document.getElementById('guesses-left').innerHTML = "Guesses Left: " + 9;
 
 // Store Guesses so far
-var guessesSoFar = "Your Guesses so far: ";
+var guessesSoFar = document.getElementById('guesses-so-far').innerHTML = "Your Guesses so far: ";
 
-document.getElementById('guesses-so-far').innerHTML = "Your Guesses so far: ";
