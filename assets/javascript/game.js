@@ -31,32 +31,35 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
     console.log(userGuess)
 
-    if (userGuess === computerChoice) {
-        console.log("Success!!");
-        winsScore++;
-        console.log(winsScore);
-        guessesLeft = 9;
-        guessesSoFar = [];
+    if (computerOptions.indexOf(userGuess) > -1) {
+        if (userGuess === computerChoice) {
+            console.log("Success!!");
+            winsScore++;
+            console.log(winsScore);
+            guessesLeft = 9;
+            guessesSoFar = [];
 
+        }
+        else if (userGuess !== computerChoice) {
+            console.log("Wrong Letter!");
+            guessesLeft--;
+            guessesSoFar.push(userGuess);
+        }
+        if (guessesLeft === 0) {
+            guessesLeft = 9;
+            lossScore++;
+            guessesSoFar = [];
+        }
     }
-    else if (userGuess !== computerChoice) {
-        console.log("Wrong Letter!");
-        guessesLeft--;
-        guessesSoFar.push(userGuess);
-    }
-    if (guessesLeft === 0 ) {
-        guessesLeft = 9;
-        lossScore++;
-        guessesSoFar = [];
-    }
+    
     var scoreBoard =
 
-            "<h1>The Psychic Game</h1>" +
-            "<p>Guess what letter I'm thinking of</p>" +
-            "<p>Wins: " + winsScore + "</p>" +
-            "<p>Losses: " + lossScore + "</p>" +
-            "<p>Guesses Left: " + guessesLeft + "</p>" +
-            "<p>Guesses So Far: " + guessesSoFar.join(", ") + "</p>";
+        "<h1>The Psychic Game</h1>" +
+        "<p>Guess what letter I'm thinking of</p>" +
+        "<p>Wins: " + winsScore + "</p>" +
+        "<p>Losses: " + lossScore + "</p>" +
+        "<p>Guesses Left: " + guessesLeft + "</p>" +
+        "<p>Guesses So Far: " + guessesSoFar.join(", ") + "</p>";
 
-        document.querySelector("#game").innerHTML = scoreBoard;
+    document.querySelector("#game").innerHTML = scoreBoard;
 }
