@@ -73,21 +73,12 @@ document.onkeyup = function(event) {
     }
   }
 
-  const scoreBoard =
-    "<h1>The Psychic Game</h1>" +
-    "<p>Guess what letter I'm thinking of</p>" +
-    "<p>Wins: " +
-    winsScore +
-    "</p>" +
-    "<p>Losses: " +
-    lossScore +
-    "</p>" +
-    "<p>Guesses Left: " +
-    guessesLeft +
-    "</p>" +
-    "<p>Guesses So Far: " +
-    guessesSoFar.join(", ") +
-    "</p>";
+  const scoreBoard = `<h1>The Psychic Game</h1>
+    <p>Guess what letter I'm thinking of</p>
+    <p>Wins: ${winsScore} </p>
+    <p>Losses: ${lossScore} </p>
+    <p>Guesses Left: ${guessesLeft} </p>
+    <p>Guesses So Far: ${guessesSoFar.join(", ")} </p>`;
 
   document.querySelector("#game").innerHTML = scoreBoard;
 };
