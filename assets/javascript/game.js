@@ -1,3 +1,4 @@
+"use strict";
 // VARIABLES
 // ---------------------------------
 
@@ -28,7 +29,7 @@ const computerOptions = [
   "w",
   "x",
   "y",
-  "z"
+  "z",
 ];
 
 // User starts with 0 Wins
@@ -46,7 +47,7 @@ let guessesSoFar = [];
 // FUNCTIONS
 // ---------------------------------
 
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
   const computerChoice =
     computerOptions[Math.floor(Math.random() * computerOptions.length)];
   console.log(computerChoice);
