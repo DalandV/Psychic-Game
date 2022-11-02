@@ -32,7 +32,7 @@ const computerOptions = [
   "z",
 ];
 
-// Add "computerChoice" variable
+let computerChoice;
 
 // User starts with 0 Wins
 let winsScore = 0;
@@ -46,18 +46,21 @@ let guessesLeft = 9;
 // Store Users Guesses so far
 let guessesSoFar = [];
 
+const updateComputerChoice = function () {
+  computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+};
+
+updateComputerChoice();
+console.log(`Computer Choice: ${computerChoice}`);
+
 // FUNCTIONS
 // ---------------------------------
 
 document.onkeyup = function (event) {
   //When the user presses a key
-  const computerChoice =
-    computerOptions[Math.floor(Math.random() * computerOptions.length)];
-  // ** Changes the computer choice on each guess instead of each round **
-  console.log(computerChoice);
 
   const userGuess = event.key;
-  console.log(userGuess);
+  console.log(`User Guess: ${userGuess}`);
 
   if (computerOptions.indexOf(userGuess) > -1) {
     // Only triggers when a user presses a letter key
