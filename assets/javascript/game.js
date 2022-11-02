@@ -56,11 +56,16 @@ const updateGuessesLeft = function () {
   console.log(`Guesses Left: ${guessesLeft}`);
 };
 
+const updateGuessesSoFar = function () {
+  document.querySelector("#guesses-so-far").innerHTML = guessesSoFar.join(", ");
+}
+
 const startNewRound = function () {
   guessesLeft = 9;
   guessesSoFar = [];
   updateGuessesLeft();
   updateComputerChoice();
+  updateGuessesSoFar();
   console.log(`Computer Choice: ${computerChoice}`);
 };
 
@@ -97,6 +102,7 @@ document.onkeyup = function (event) {
       updateGuessesLeft();
 
       guessesSoFar.push(userGuess);
+      updateGuessesSoFar()
       // And the incorrect guess is added to the "guessesSoFar" array
     }
     if (guessesLeft === 0) {
@@ -117,8 +123,8 @@ document.onkeyup = function (event) {
     <p>Guess what letter I'm thinking of</p>
     <p>Wins: ${winsScore} </p>
     <p>Losses: ${lossScore} </p>
-    <p>Guesses Left: ${guessesLeft} </p>
-    <p>Guesses So Far: ${guessesSoFar.join(", ")} </p>`;
+    <p>Guesses Left: ${guessesLeft} </p> ✔✔️✔️
+    <p>Guesses So Far: ${guessesSoFar.join(", ")} </p>`; ✔✔️✔️
 
   document.querySelector("#game").innerHTML = scoreBoard; */
   // *********************************************************
