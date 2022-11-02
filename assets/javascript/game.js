@@ -47,7 +47,14 @@ let guessesLeft = 9;
 let guessesSoFar = [];
 
 const updateComputerChoice = function () {
-  computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+  computerChoice =
+    computerOptions[Math.floor(Math.random() * computerOptions.length)];
+};
+
+const startNewRound = function () {
+  guessesLeft = 9;
+  guessesSoFar = [];
+  updateComputerChoice();
 };
 
 updateComputerChoice();
@@ -74,12 +81,9 @@ document.onkeyup = function (event) {
 
       // Add code to update "Wins" score using html file
 
-      // ***************
-      guessesLeft = 9;
-      guessesSoFar = [];
-      // ***************
-      // ** Repeated Code: This should be a function **
+      startNewRound();
       // And a new round begins
+
     } else if (userGuess !== computerChoice) {
       console.log("Wrong Letter!");
       guessesLeft--;
@@ -96,11 +100,8 @@ document.onkeyup = function (event) {
 
       // Add code to update "Losses" score using html file
 
-      // ***************
-      guessesLeft = 9;
-      guessesSoFar = [];
-      // ***************
-      // ** Repeated Code: This should be a function **
+      startNewRound();
+      // And a new round begins
     }
   }
 
