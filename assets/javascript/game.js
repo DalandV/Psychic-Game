@@ -51,14 +51,20 @@ const updateComputerChoice = function () {
     computerOptions[Math.floor(Math.random() * computerOptions.length)];
 };
 
+const updateGuessesLeft = function () {
+  document.querySelector("#guesses-left").innerHTML = guessesLeft;
+  console.log(`Guesses Left: ${guessesLeft}`);
+};
+
 const startNewRound = function () {
   guessesLeft = 9;
   guessesSoFar = [];
+  updateGuessesLeft();
   updateComputerChoice();
+  console.log(`Computer Choice: ${computerChoice}`);
 };
 
-updateComputerChoice();
-console.log(`Computer Choice: ${computerChoice}`);
+startNewRound();
 
 // FUNCTIONS
 // ---------------------------------
@@ -83,11 +89,12 @@ document.onkeyup = function (event) {
 
       startNewRound();
       // And a new round begins
-
     } else if (userGuess !== computerChoice) {
       console.log("Wrong Letter!");
       guessesLeft--;
       // Their chance to guess is reduced by 1
+
+      updateGuessesLeft();
 
       guessesSoFar.push(userGuess);
       // And the incorrect guess is added to the "guessesSoFar" array
@@ -106,14 +113,14 @@ document.onkeyup = function (event) {
   }
 
   // *********************************************************
-  const scoreBoard = `<h1>The Psychic Game</h1>
+  /* const scoreBoard = `<h1>The Psychic Game</h1>
     <p>Guess what letter I'm thinking of</p>
     <p>Wins: ${winsScore} </p>
     <p>Losses: ${lossScore} </p>
     <p>Guesses Left: ${guessesLeft} </p>
     <p>Guesses So Far: ${guessesSoFar.join(", ")} </p>`;
 
-  document.querySelector("#game").innerHTML = scoreBoard;
+  document.querySelector("#game").innerHTML = scoreBoard; */
   // *********************************************************
   // Repeats code from html file ** Get rid of this **
 
