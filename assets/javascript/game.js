@@ -1,6 +1,4 @@
 "use strict";
-// VARIABLES
-// ---------------------------------
 
 // Options the computer will choose from
 const computerOptions = [
@@ -53,7 +51,6 @@ const updateComputerChoice = function () {
 
 const updateGuessesLeft = function () {
   document.querySelector("#guesses-left").innerHTML = guessesLeft;
-  console.log(`Guesses Left: ${guessesLeft}`);
 };
 
 const updateGuessesSoFar = function () {
@@ -66,36 +63,28 @@ const startNewRound = function () {
   updateGuessesLeft();
   updateComputerChoice();
   updateGuessesSoFar();
-  console.log(`Computer Choice: ${computerChoice}`);
 };
 
 startNewRound();
-
-// FUNCTIONS
-// ---------------------------------
 
 document.onkeyup = function (event) {
   //When the user presses a key
 
   const userGuess = event.key;
-  console.log(`User Guess: ${userGuess}`);
 
   if (computerOptions.indexOf(userGuess) > -1) {
     // Only triggers when a user presses a letter key
 
     if (userGuess === computerChoice) {
-      console.log("Success!!");
 
       winsScore++;
       // On a correct guess the user gets 1 point added to their "Wins" Score
-      console.log(winsScore);
 
       document.querySelector("#wins").innerHTML = winsScore;
 
       startNewRound();
       // And a new round begins
     } else if (userGuess !== computerChoice) {
-      console.log("Wrong Letter!");
       guessesLeft--;
       // Their chance to guess is reduced by 1
 
