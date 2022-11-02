@@ -90,7 +90,7 @@ document.onkeyup = function (event) {
       // On a correct guess the user gets 1 point added to their "Wins" Score
       console.log(winsScore);
 
-      // Add code to update "Wins" score using html file
+      document.querySelector("#wins").innerHTML = winsScore;
 
       startNewRound();
       // And a new round begins
@@ -111,29 +111,10 @@ document.onkeyup = function (event) {
       lossScore++;
       // 1 point is added to their "Losses" Score
 
-      // Add code to update "Losses" score using html file
+      document.querySelector("#losses").innerHTML = lossScore;
 
       startNewRound();
       // And a new round begins
     }
   }
-
-  // *********************************************************
-  /* const scoreBoard = `<h1>The Psychic Game</h1>
-    <p>Guess what letter I'm thinking of</p>
-    <p>Wins: ${winsScore} </p>
-    <p>Losses: ${lossScore} </p>
-    <p>Guesses Left: ${guessesLeft} </p> ✔✔️✔️
-    <p>Guesses So Far: ${guessesSoFar.join(", ")} </p>`; ✔✔️✔️
-
-  document.querySelector("#game").innerHTML = scoreBoard; */
-  // *********************************************************
-  // Repeats code from html file ** Get rid of this **
-
-  /*   
-  Add code to set up a new round:
-  "Guesses Left:"
-  "Guesses So Far:"
-  and "computerChoice" should be reset together
-   */
 };
